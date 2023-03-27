@@ -1,0 +1,29 @@
+--create a store database
+
+Create table inventory (id integer primary key, item text, quantity integer, aisle integer, price integer);
+
+Insert into inventory Values
+(1, "pants", 45, 2, 20),
+(2, "short sleeve shirts", 56, 1, 15),
+(3, "long sleeve shirts", 53, 1, 25),
+(4, "shorts", 73, 3, 14),
+(5, "jackets", 45, 8, 35),
+(6, "winter coats", 60, 9, 65),
+(7, "socks", 300, 5, 8),
+(8, "underwear", 223, 6, 11),
+(9, "shoes", 35, 8, 50),
+(10, "belts", 40, 10, 19),
+(11, "hats", 134, 11, 23),
+(12, "dress shirts", 67, 7, 45),
+(13, "dress jackets", 37, 8, 130),
+(14, "undershirts", 58, 5, 16),
+(15, "gloves", 90, 6, 20);
+
+--display the database ordered by price
+
+select * from inventory
+order by price asc;
+
+--what is the most expensive item sold at the store?
+
+select max(price) from inventory;
