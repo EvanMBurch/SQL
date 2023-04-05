@@ -1,0 +1,30 @@
+/* Table of various people in culture and what they do */
+
+create table famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+insert into famous_people (name) VALUES
+("Lebron James"),
+("Tom Cruise"),
+("Taylor Swift"),
+("Patrick Mahomes"),
+("Jennifer Lawrence"),
+("Paul Rudd"),
+("Kevin Durant"),
+("Ariana Grande"),
+("John Mayer");
+
+create table athletes (id integer primary key autoincrement, sport text, athlete_id text);
+
+insert into athletes (sport, athlete_id) values
+("basketball", 1),
+("basketball", 7),
+("football", 4);
+
+create table musicians (id integer primary key autoincrement, genre text, artist_id text);
+
+insert into musicians (genre, artist_id) values
+("Pop", 3),
+("Pop", 8),
+("Alternative", 9);
+
+select famous_people.name, athletes.sport from famous_people
+Join athletes on famous_people.id = athletes.athlete_id;
