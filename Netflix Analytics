@@ -1,0 +1,29 @@
+In this file, I am querying a database that holds information on Netflix content.
+
+/* How many movie titles are in this database? */
+
+select count(*) from "CharlotteChaze/BreakIntoTech"."netflix_titles_info" where type='Movie';
+
+/* When was the most recent batch of tv shows and/or movies added to the database? */
+
+select max(date(date_added)) from "CharlotteChaze/BreakIntoTech"."netflix_titles_info"; 
+
+/* List all the movies and tv shows in alphabetical order. */
+
+select "CharlotteChaze/BreakIntoTech"."netflix_titles_info".title
+from "CharlotteChaze/BreakIntoTech"."netflix_titles_info" 
+order by title asc;
+
+/* Who was the director for the movie Bright Star? */
+
+select people.director, titles.title
+From "CharlotteChaze/BreakIntoTech"."netflix_people" people
+JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+ON titles.show_id = people.show_id
+Where titles.title = 'Bright Star';
+
+/* What is the oldest movie in the database and what year was it made? */
+
+select title, release_year 
+from "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+where type = 'Movie' order by release_year asc LIMIT 1;
