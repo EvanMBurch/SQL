@@ -1,0 +1,21 @@
+/// Here I downloaded Spotify data from Kaggle and created a table and inserted the data from excel.
+I then performed analytics on the data.
+
+/* what is the average length in minutes of song on this list? */
+
+select avg(duration_ms)/(1000*60) as avg_min from BIT_DB.Spotifydata;
+
+/* How dancable is the most popular song? */
+
+select max(popularity), danceability from BIT_DB.Spotifydata order by popularity limit 1;
+
+/* What is the average popularity, danceability, and energy of these songs? */
+
+select avg(popularity), avg(danceability), avg(energy) from BIT_DB.Spotifydata;
+
+/* who has the least popular song on the list and what is the song? */
+
+select artist_name, track_name
+from BIT_DB.Spotifydata
+order by popularity asc
+LIMIT 1
