@@ -43,3 +43,15 @@ select artist_name, track_name
 from BIT_DB.Spotifydata
 order by popularity asc
 LIMIT 1
+
+/* what is the average popularity of the top ten artists (according to popularity)? */
+
+With avg_artist_pop_CTE as 
+(select s.artist_name, avg(s.popularity) as avg_popularity
+from spotifydata s
+group by s.artist_name)
+
+select artist_name, avg_popularity, 'Top Star' as Tag
+from avg_artist_pop_CTE
+where avg_popularity >= 90
+order by artist_name;
