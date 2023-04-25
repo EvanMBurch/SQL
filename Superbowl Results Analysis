@@ -98,3 +98,5 @@ select win_type, count(win_type) from (select SB, Winner_pts, Loser_pts,
     group by win_type order by count(win_type);
     
 /* There have been 15 blowouts, 16 close wins, and 23 clear wins in Superbowl history */
+
+/* Data Source: Pamelafox, "Superbowls 1967-2020 (Winners and losers of all Superbowl finals)." */
